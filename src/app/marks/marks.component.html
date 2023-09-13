@@ -1,0 +1,21 @@
+<h1 style="text-align:center; color:blue;">Students Marks</h1><br> <br> <br>
+<table class="table">
+    <thead>
+      <tr>
+        <th style="text-align: center;">Student Name</th>
+        <th style="text-align: center;">Email Address</th>
+        <th style="text-align: center;">Marks (out of 100)</th>
+        <th style="text-align: center;">Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.name }}</td>
+        <td>{{ student.email }}</td>
+        <td [ngClass]="{ 'text-red': student.marks < 50, 'text-green': student.marks >= 50 }">{{ student.marks }}</td>
+        <td *ngIf="student.status === 'PASS'" class="badge bg-success">PASS</td>
+        <td *ngIf="student.status === 'FAIL'" class="badge bg-danger">FAIL</td>
+      </tr>
+    </tbody>
+  </table>
+  
